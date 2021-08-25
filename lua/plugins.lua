@@ -56,5 +56,6 @@ return require('packer').startup(function ()
   use 'Pocco81/AutoSave.nvim'
   use 'akinsho/nvim-toggleterm.lua'
   use 'tpope/vim-surround'
+  use 'romgrk/nvim-treesitter-context'
 end)
 

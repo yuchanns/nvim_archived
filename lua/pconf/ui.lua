@@ -185,3 +185,8 @@ vim.api.nvim_set_keymap('n', '<leader>fa', ':DashboardFindWord<CR>', { noremap =
 vim.api.nvim_set_keymap('n', '<leader>fb', ':DashboardJumpMark<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>cn', ':DashboardNewFile<CR>', { noremap = true, silent = true })
 
+-- treesitter context
+require'treesitter-context'.setup{
+    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+    throttle = true, -- Throttles plugin updates (may improve performance)
+}
