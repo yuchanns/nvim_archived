@@ -5,14 +5,16 @@ vim.api.nvim_set_keymap('n', 'do', ':lua require(\'dap\').step_out()<CR>', { nor
 vim.api.nvim_set_keymap('n', 'db', ':lua require(\'dap\').toggle_breakpoint()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'dr', ':lua require(\'dap\').repl.open()<CR>', { noremap = true, silent = true })
 
-vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
-
 -- ui
-require("dapui").setup {
+require('dapui').setup {
   sidebar = {
-    position = "right",
+    position = 'right',
   },
 }
+
+vim.fn.sign_define('DapBreakpoint', {text='', texthl='Error', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', { text = '→', texthl = 'Success', linehl = '', numhl = '' })
+
 
 -- language
 local dap = require('dap')
@@ -25,10 +27,10 @@ dap.adapters.go = function(callback, config)
     local port = 38697
     local opts = {
       stdio = {nil, stdout},
-      args = {"dap", "-l", "127.0.0.1:" .. port},
+      args = {'dap', '-l', '127.0.0.1:' .. port},
       detached = true
     }
-    handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
+    handle, pid_or_err = vim.loop.spawn('dlv', opts, function(code)
       stdout:close()
       handle:close()
       if code ~= 0 then
@@ -47,32 +49,32 @@ dap.adapters.go = function(callback, config)
     -- Wait for delve to start
     vim.defer_fn(
       function()
-        callback({type = "server", host = "127.0.0.1", port = port})
+        callback({type = 'server', host = '127.0.0.1', port = port})
       end,
       100)
   end
   -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
   dap.configurations.go = {
     {
-      type = "go",
-      name = "Debug",
-      request = "launch",
-      program = "${file}"
+      type = 'go',
+      name = 'Debug',
+      request = 'launch',
+      program = '${file}'
     },
     {
-      type = "go",
-      name = "Debug test", -- configuration for debugging test files
-      request = "launch",
-      mode = "test",
-      program = "${file}"
+      type = 'go',
+      name = 'Debug test', -- configuration for debugging test files
+      request = 'launch',
+      mode = 'test',
+      program = '${file}'
     },
     -- works with go.mod packages and sub packages
     {
-      type = "go",
-      name = "Debug test (go.mod)",
-      request = "launch",
-      mode = "test",
-      program = "./${relativeFileDirname}"
+      type = 'go',
+      name = 'Debug test (go.mod)',
+      request = 'launch',
+      mode = 'test',
+      program = './${relativeFileDirname}'
     }
 }
 
@@ -85,9 +87,9 @@ dap.adapters.lldb = {
 
 dap.configurations.cpp = {
   {
-    name = "Launch",
-    type = "lldb",
-    request = "launch",
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
