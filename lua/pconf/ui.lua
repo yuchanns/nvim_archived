@@ -3,6 +3,7 @@ require('github-theme').setup {
     sidebars = {"qf", "vista_kind", "terminal", "packer"},
     colors = {hint = "orange", error = "#ff0000"},
     themeStyle = "dimmed",
+    transparent = true,
 }
 
 require('lualine').setup {
