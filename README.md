@@ -16,7 +16,7 @@ The \<leader\> is mapped into space.
 | Find a word | \<leader\>fa |
 | Create new file | \<leader\>cn |
 | Toggle tree | \<C-n\> |
-| Toggle terminal | \<leader\>t |
+| Toggle terminal n(n is the number to identify which terminal) | n\<leader\>t |
 | Pick buffer | bb |
 | Close buffer | bc |
 ...(to be completed)

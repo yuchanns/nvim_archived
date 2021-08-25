@@ -128,3 +128,4 @@ nvim_lsp["rust_analyzer"].setup {
     command = "clippy"
   },
 }
+require('rust-tools').setup()

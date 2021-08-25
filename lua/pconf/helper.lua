@@ -17,7 +17,7 @@ require('autosave').setup(
         debounce_delay = 135
     }
 )
-vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm size=10<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t', '<Cmd>exe v:count1 . "ToggleTerm size=10 direction=float"<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
