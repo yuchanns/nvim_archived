@@ -129,3 +129,4 @@ nvim_lsp["rust_analyzer"].setup {
   },
 }
 require('rust-tools').setup()
+vim.g.rustfmt_autosave = 1

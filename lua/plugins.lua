@@ -19,6 +19,7 @@ return require('packer').startup(function ()
   use 'crispgm/nvim-go'
   use 'simrat39/rust-tools.nvim'
   use 'rhysd/vim-go-impl'
+  use 'rust-lang/rust.vim'
 
   -- Theme
   use 'projekt0n/github-nvim-theme'
