@@ -19,6 +19,7 @@ local g = vim.g
 -- nvim tree
 g.nvim_tree_side = 'left'
 g.nvim_tree_ignore = { '.git', 'node_modules', '.cache', '.idea', '.DS_Store' }
+g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
 g.nvim_tree_auto_open = 1
 g.nvim_tree_auto_close = 1
 g.nvim_tree_quit_on_open = 0
@@ -176,6 +177,11 @@ vim.api.nvim_set_keymap('n', 'gR', ':TroubleToggle lsp_references<CR>', { norema
 
 -- dashboard
 g.dashboard_default_executive = 'telescope'
+g.dashboard_preview_command = 'cat'
+g.dashboard_preview_pipeline = 'lolcat'
+g.dashboard_preview_file = '~/.config/nvim/neovim.cat'
+g.dashboard_preview_file_height = 12
+g.dashboard_preview_file_width = 80
 vim.api.nvim_set_keymap('n', '<leader>ss', ':<C-u>SessionSave<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>sl', ':<C-u>SessionLoad<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DashboardFindHistory<CR>', { noremap = true, silent = true })
