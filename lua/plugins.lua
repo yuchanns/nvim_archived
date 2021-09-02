@@ -43,7 +43,6 @@ return require('packer').startup(function ()
   use 'RRethy/vim-illuminate'
   use 'danilamihailov/beacon.nvim'
   use 'famiu/bufdelete.nvim'
-  use 'rhysd/git-messenger.vim'
   use 'glepnir/dashboard-nvim'
 
   -- Debugger
@@ -58,5 +57,6 @@ return require('packer').startup(function ()
   use 'akinsho/nvim-toggleterm.lua'
   use 'tpope/vim-surround'
   use 'romgrk/nvim-treesitter-context'
+  use 'APZelos/blamer.nvim'
 end)
 
