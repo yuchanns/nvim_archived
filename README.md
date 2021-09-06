@@ -6,6 +6,7 @@
 * gopls
 * revive
 * goimports
+* lolcat
 * ...(to be completed)
 
 ## Usage

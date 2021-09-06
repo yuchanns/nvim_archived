@@ -77,15 +77,19 @@ local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   require('illuminate').on_attach(client)
   require('lsp_signature').on_attach(client)
+  require('aerial').on_attach(client)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
+  
   -- Mappings.
   -- local opts = { noremap=true, silent=true }
-
+  buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+  buf_set_keymap('n', '{', '<cmd>AerialPrev<CR>', {})
+  buf_set_keymap('n', '}', '<cmd>AerialNext<CR>', {})
+  buf_set_keymap('n', '<leader>w', '<cmd>AerialTreeToggle!<CR>', {})
   -- See `:help vim.lsp.*` for documentation on any of the below functions
 end
 

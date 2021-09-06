@@ -15,6 +15,7 @@ return require('packer').startup(function ()
   use 'p00f/nvim-ts-rainbow'
   use 'folke/lsp-colors.nvim'
   use 'nvim-lua/lsp-status.nvim'
+  use 'stevearc/aerial.nvim'
   -- Language
   use 'crispgm/nvim-go'
   use 'simrat39/rust-tools.nvim'
