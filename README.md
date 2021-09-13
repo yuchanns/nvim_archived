@@ -7,6 +7,8 @@
 * revive
 * goimports
 * lolcat
+* svelte-language-server
+* lua-language-server
 * ...(to be completed)
 
 ## Usage
