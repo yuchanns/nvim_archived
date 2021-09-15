@@ -86,7 +86,7 @@ local on_attach = function(client, bufnr)
   
   -- Mappings.
   -- local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+  buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle! left<CR>', {})
   buf_set_keymap('n', '{', '<cmd>AerialPrev<CR>', {})
   buf_set_keymap('n', '}', '<cmd>AerialNext<CR>', {})
   buf_set_keymap('n', '<leader>w', '<cmd>AerialTreeToggle!<CR>', {})
