@@ -12,64 +12,9 @@ require('lualine').setup {
         section_separators = {"", ""},
         component_separators = {'', ''},
     },
-    extensions = {'nvim-tree'}
 }
 
 local g = vim.g
--- nvim tree
-g.nvim_tree_side = 'left'
-g.nvim_tree_ignore = { '.git', 'node_modules', '.cache', '.idea', '.DS_Store' }
-g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
-g.nvim_tree_auto_open = 1
-g.nvim_tree_auto_close = 1
-g.nvim_tree_quit_on_open = 0
-g.nvim_tree_follow = 1
-g.nvim_tree_indent_markers = 1
-g.nvim_tree_hide_dotfiles = 0
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_root_folder_modifier = ':~'
-g.nvim_tree_tab_open = 0
-g.nvim_tree_auto_resize = 1
-g.nvim_tree_disable_netrw = 0
-g.nvim_tree_hijack_netrw = 0
-g.nvim_tree_add_trailing = 1
-g.nvim_tree_group_empty = 1
-g.nvim_tree_lsp_diagnostics = 1
-g.nvim_tree_disable_window_picker = 1
-g.nvim_tree_hijack_cursor = 1
-g.nvim_tree_icon_padding = ' '
-g.nvim_tree_update_cwd = 1
-g.nvim_tree_special_files = { ['README.md'] = 1, Makefile = 1, MAKEFILE = 1 }
-g.nvim_tree_icons = {
-    default = '',
-    symlink = '',
-    git = {
-        unstaged = "✗",
-        staged = "✓",
-        unmerged = "",
-        renamed = "➜",
-        untracked = "★",
-        deleted = "",
-        ignored = "◌"
-    },
-    folder = {
-        arrow_open = "",
-        arrow_closed = "",
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-        symlink_open = "",
-    },
-    lsp = {
-        hint = "",
-        info = "",
-        warning = "",
-        error = "",
-    }
- }
 
  -- indent-blankline
  g.indentLine_char_list = {'|', '¦', '┆', '┊'}
@@ -92,11 +37,6 @@ g.indent_blankline_context_patterns = {
 -- because lazy load indent-blankline so need readd this autocmd
 vim.cmd('autocmd CursorMoved * IndentBlanklineRefresh')
 
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>r', ':NvimTreeRefresh<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeFindFile<CR>', { noremap = true })
-vim.cmd('highlight NvimTreeFolderIcon guibg=blue')
-
 require('bufferline').setup {
     options = {
         diagnostics = "nvim_lsp",
@@ -109,14 +49,6 @@ require('bufferline').setup {
             end
             return s
         end,
-        offsets = {
-            {
-                filetype = "NvimTree",
-                text = "File Explorer",
-                highlight = "Directory",
-                text_align = "left"
-            }
-        },
         custom_areas = {
             right = function()
                 local result = {}
@@ -185,7 +117,7 @@ g.dashboard_preview_file_width = 80
 vim.api.nvim_set_keymap('n', '<leader>ss', ':<C-u>SessionSave<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>sl', ':<C-u>SessionLoad<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DashboardFindHistory<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ff', ':DashboardFindFile<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', ':lua require(\'telescope.builtin\').file_browser()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tc', ':DashboardChangeColorscheme<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fa', ':DashboardFindWord<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', ':DashboardJumpMark<CR>', { noremap = true, silent = true })

@@ -6,6 +6,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function ()
+  use 'wbthomason/packer.nvim'
   -- LSP and friends
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
@@ -27,7 +28,6 @@ return require('packer').startup(function ()
 
   -- UI
   use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
   use 'akinsho/nvim-bufferline.lua'
   use {
     'nvim-telescope/telescope.nvim',
