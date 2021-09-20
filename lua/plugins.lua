@@ -25,6 +25,7 @@ return require('packer').startup(function ()
 
   -- Theme
   use 'projekt0n/github-nvim-theme'
+  use 'folke/tokyonight.nvim'
 
   -- UI
   use 'kyazdani42/nvim-web-devicons'

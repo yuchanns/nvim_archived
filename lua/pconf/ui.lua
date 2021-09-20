@@ -1,20 +1,26 @@
-require('github-theme').setup {
+--[[ require('github-theme').setup {
     function_style = "italic",
     sidebars = {"qf", "vista_kind", "terminal", "packer"},
     colors = {hint = "orange", error = "#ff0000"},
     theme_style = "dark",
     transparent = true,
-}
+} ]]
+
 
 require('lualine').setup {
     options = {
-        theme = "github",
+        theme = "tokyonight",
         section_separators = {"", ""},
         component_separators = {'', ''},
     },
 }
 
+
 local g = vim.g
+
+g.tokyonight_transparent = true
+
+vim.cmd[[colorscheme tokyonight]]
 
  -- indent-blankline
  g.indentLine_char_list = {'|', '¦', '┆', '┊'}
