@@ -25,3 +25,25 @@ vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
 
 vim.g.blamer_enabled = 1
 
+require('neoclip').setup {
+    history = 1000,
+      filter = nil,
+      preview = true,
+      default_register = '"',
+      content_spec_column = false,
+      on_paste = {
+        set_reg = false,
+      },
+      keys = {
+        i = {
+          select = '<cr>',
+          paste = '<c-p>',
+          paste_behind = '<c-k>',
+        },
+        n = {
+          select = '<cr>',
+          paste = 'p',
+          paste_behind = 'P',
+        },
+      },
+}

@@ -45,7 +45,7 @@ return require('packer').startup(function ()
   use 'danilamihailov/beacon.nvim'
   use 'famiu/bufdelete.nvim'
   use 'glepnir/dashboard-nvim'
-
+  use "AckslD/nvim-neoclip.lua"
   -- Debugger
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'

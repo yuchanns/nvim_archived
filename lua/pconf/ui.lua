@@ -1,8 +1,8 @@
 require('github-theme').setup {
-    functionStyle = "italic",
+    function_style = "italic",
     sidebars = {"qf", "vista_kind", "terminal", "packer"},
     colors = {hint = "orange", error = "#ff0000"},
-    themeStyle = "dimmed",
+    theme_style = "dark",
     transparent = true,
 }
 
@@ -98,6 +98,7 @@ telescope.setup {
     }
 }
 telescope.load_extension('fzy_native')
+telescope.load_extension('neoclip')
 
 require('trouble').setup()
 vim.api.nvim_set_keymap('n', '<leader>xx', ':TroubleToggle<CR>', { noremap = true })
@@ -130,3 +131,4 @@ require'treesitter-context'.setup{
 }
 
 vim.cmd("let &fcs='eob: '")
+
