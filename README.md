@@ -9,6 +9,7 @@
 * lolcat
 * svelte-language-server
 * lua-language-server
+* phpactor
 * ...(to be completed)
 
 ## Usage

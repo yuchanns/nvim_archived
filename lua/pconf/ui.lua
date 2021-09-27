@@ -18,7 +18,7 @@ require('lualine').setup {
 
 local g = vim.g
 
-g.tokyonight_transparent = true
+g.tokyonight_transparent = false
 
 vim.cmd[[colorscheme tokyonight]]
 

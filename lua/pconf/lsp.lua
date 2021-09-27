@@ -161,8 +161,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 nvim_lsp["sumneko_lua"].setup {
-    on_attach = on_attach,
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
     Lua = {
       runtime = {
@@ -185,4 +184,11 @@ nvim_lsp["sumneko_lua"].setup {
       },
     },
   },
+}
+-- php
+local phpactor_root_path = vim.fn.stdpath('data')..'/lspconfig/phpactor'
+local phpactor_binary = phpactor_root_path.."/bin/phpactor"
+nvim_lsp["phpactor"].setup {
+    on_attach = on_attach,
+    cmd = {phpactor_binary, "language-server"}
 }
