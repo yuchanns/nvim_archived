@@ -138,3 +138,5 @@ require'treesitter-context'.setup{
 
 vim.cmd("let &fcs='eob: '")
 
+-- dadbod-ui
+g.db_ui_use_nerd_fonts = 1

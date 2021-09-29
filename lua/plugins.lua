@@ -60,5 +60,9 @@ return require('packer').startup(function ()
   use 'tpope/vim-surround'
   use 'romgrk/nvim-treesitter-context'
   use 'APZelos/blamer.nvim'
-end)
 
+  -- Database
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
+  use 'kristijanhusak/vim-dadbod-completion'
+end)

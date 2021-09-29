@@ -66,6 +66,7 @@ require('compe').setup {
     vsnip = true;
     ultisnips = true;
     luasnip = true;
+    vim_dadbod_completion = true;
   };
 }
 
