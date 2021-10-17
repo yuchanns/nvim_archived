@@ -84,7 +84,7 @@ local on_attach = function(client, bufnr)
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-  
+
   -- Mappings.
   -- local opts = { noremap=true, silent=true }
   buf_set_keymap('n', '<leader>a', '<cmd>AerialToggle! left<CR>', {})
@@ -100,6 +100,11 @@ nvim_lsp["gopls"].setup {
   flags = {
     debounce_text_changes = 150,
   },
+  settings = {
+    gopls = {
+      analyses = { composites = false }
+    }
+  }
 }
 
 require('go').setup {
@@ -187,9 +192,20 @@ nvim_lsp["sumneko_lua"].setup {
   },
 }
 -- php
+vim.cmd('autocmd FileType php set iskeyword+=$')
 local phpactor_root_path = vim.fn.stdpath('data')..'/lspconfig/phpactor'
 local phpactor_binary = phpactor_root_path.."/bin/phpactor"
 nvim_lsp["phpactor"].setup {
     on_attach = on_attach,
-    cmd = {phpactor_binary, "language-server"}
+    cmd = {phpactor_binary, "language-server", "-vvv"}
+}
+-- json
+nvim_lsp["jsonls"].setup {
+    commands = {
+      Format = {
+        function()
+          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+        end
+      }
+    }
 }
