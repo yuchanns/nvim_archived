@@ -12,7 +12,8 @@ return require('packer').startup(function ()
   use 'hrsh7th/nvim-compe'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = '0.5-compat' }
   use 'ray-x/lsp_signature.nvim'
-  use 'glepnir/lspsaga.nvim'
+  -- use 'glepnir/lspsaga.nvim'
+  use { 'tami5/lspsaga.nvim', branch = 'nvim6.0' }
   use 'p00f/nvim-ts-rainbow'
   use 'folke/lsp-colors.nvim'
   use 'nvim-lua/lsp-status.nvim'
@@ -46,7 +47,12 @@ return require('packer').startup(function ()
   use 'danilamihailov/beacon.nvim'
   use 'famiu/bufdelete.nvim'
   use 'glepnir/dashboard-nvim'
-  use "AckslD/nvim-neoclip.lua"
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      {"nvim-telescope/telescope.nvim"}
+    }
+  }
   -- Debugger
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'

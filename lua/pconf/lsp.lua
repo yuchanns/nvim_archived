@@ -116,29 +116,32 @@ require('go').setup {
 }
 
 -- rust
-nvim_lsp["rust_analyzer"].setup {
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
-  assist = {
-    importMergeBehavior = "last",
-    importPrefix = "by_self",
-  },
-  diagnostics = {
-    disabled = { "unresolved-import" }
-  },
-  cargo = {
-    loadOutDirsFromCheck = true
-  },
-  procMacro = {
-    enable = true
-  },
-  checkOnSave = {
-    command = "clippy"
-  },
+local rust_tools_opt = {
+  server = {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    },
+    assist = {
+      importMergeBehavior = "last",
+      importPrefix = "by_self",
+    },
+    diagnostics = {
+      disabled = { "unresolved-import" }
+    },
+    cargo = {
+      loadOutDirsFromCheck = true
+    },
+    procMacro = {
+      enable = true
+    },
+    checkOnSave = {
+      command = "clippy"
+    },
+  }
 }
-require('rust-tools').setup()
+
+require('rust-tools').setup(rust_tools_opt)
 vim.g.rustfmt_autosave = 1
 
 -- svelte
@@ -193,7 +196,7 @@ nvim_lsp["sumneko_lua"].setup {
 }
 -- php
 vim.cmd('autocmd FileType php set iskeyword+=$')
-local phpactor_root_path = vim.fn.stdpath('data')..'/lspconfig/phpactor'
+local phpactor_root_path = '/project-data/github/phpactor'
 local phpactor_binary = phpactor_root_path.."/bin/phpactor"
 nvim_lsp["phpactor"].setup {
     on_attach = on_attach,
