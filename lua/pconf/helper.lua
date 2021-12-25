@@ -49,3 +49,5 @@ require('neoclip').setup {
         }
       },
 }
+
+require('diffview').setup()
