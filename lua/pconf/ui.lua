@@ -9,9 +9,10 @@
 
 require('lualine').setup {
     options = {
+        icons_enabled = true,
         theme = "tokyonight",
-        section_separators = {"", ""},
-        component_separators = {'', ''},
+        section_separators = { left = "", right = ""},
+        component_separators = { left = '', right = ''},
     },
 }
 
@@ -105,6 +106,7 @@ telescope.setup {
 }
 telescope.load_extension('fzy_native')
 telescope.load_extension('neoclip')
+telescope.load_extension('file_browser')
 
 require('trouble').setup()
 vim.api.nvim_set_keymap('n', '<leader>xx', ':TroubleToggle<CR>', { noremap = true })
@@ -117,14 +119,14 @@ vim.api.nvim_set_keymap('n', 'gR', ':TroubleToggle lsp_references<CR>', { norema
 -- dashboard
 g.dashboard_default_executive = 'telescope'
 g.dashboard_preview_command = 'cat'
-g.dashboard_preview_pipeline = 'lolcat'
+g.dashboard_preview_pipeline = 'lolcat -r'
 g.dashboard_preview_file = '~/.config/nvim/neovim.cat'
 g.dashboard_preview_file_height = 12
 g.dashboard_preview_file_width = 80
 vim.api.nvim_set_keymap('n', '<leader>ss', ':<C-u>SessionSave<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>sl', ':<C-u>SessionLoad<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DashboardFindHistory<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ff', ':lua require(\'telescope.builtin\').file_browser()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', ':lua require(\'telescope\').extensions.file_browser.file_browser()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tc', ':DashboardChangeColorscheme<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fa', ':DashboardFindWord<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', ':DashboardJumpMark<CR>', { noremap = true, silent = true })

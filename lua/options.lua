@@ -27,4 +27,5 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = false
 opt.belloff = 'all'
+opt.shell = 'zsh'
 

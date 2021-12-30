@@ -36,10 +36,14 @@ return require('packer').startup(function ()
     requires = {
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' }, 
-      { 'nvim-telescope/telescope-fzy-native.nvim' }
+      { 'nvim-telescope/telescope-fzy-native.nvim' },
+      { 'nvim-telescope/telescope-file-browser.nvim' }
     }
   }
-  use 'hoob3rt/lualine.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
   use 'folke/trouble.nvim'
   use 'folke/which-key.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
