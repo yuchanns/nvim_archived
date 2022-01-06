@@ -22,6 +22,10 @@ vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = 
 vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
 vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
+vim.api.nvim_set_keymap("n", '<leader>=', '<Cmd>exe "vertical resize +1.5"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", '<leader>-', '<Cmd>exe "vertical resize -1.5"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", '=', '<Cmd>exe "resize +1.5"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", '-', '<Cmd>exe "resize -1.5"<CR>', { noremap = true, silent = true })
 
 vim.g.blamer_enabled = 1
 

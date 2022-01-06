@@ -1,5 +1,5 @@
 vim.api.nvim_set_keymap('n', 'dc', ':lua require(\'dap\').continue()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'ds', ':lua require(\'dap\').step_over()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'di', ':lua require(\'dap\').step_over()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'dn', ':lua require(\'dap\').step_into()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'do', ':lua require(\'dap\').step_out()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'db', ':lua require(\'dap\').toggle_breakpoint()<CR>', { noremap = true, silent = true })
