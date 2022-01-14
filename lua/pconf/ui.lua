@@ -131,6 +131,7 @@ vim.api.nvim_set_keymap('n', '<leader>tc', ':DashboardChangeColorscheme<CR>', { 
 vim.api.nvim_set_keymap('n', '<leader>fa', ':DashboardFindWord<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', ':DashboardJumpMark<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>cn', ':DashboardNewFile<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fp', ':Telescope neoclip<CR>', { noremap = true, silent = true })
 
 -- treesitter context
 require'treesitter-context'.setup{
