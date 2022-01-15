@@ -1,21 +1,57 @@
 local fn = vim.fn
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
 end
+
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
 
 return require('packer').startup(function ()
   use 'wbthomason/packer.nvim'
   -- LSP and friends
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-compe'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = '0.5-compat' }
+  use { 
+    'neovim/nvim-lspconfig',
+    requires = {
+      { 'RRethy/vim-illuminate'},
+      { 'ray-x/lsp_signature.nvim' },
+      { 'stevearc/aerial.nvim' },
+      { 'crispgm/nvim-go' },
+      { 'simrat39/rust-tools.nvim' },
+      { 'rhysd/vim-go-impl' },
+      { 'rust-lang/rust.vim' }
+    },
+    config = function() require('setup/lspconfig') end
+  }
+  use { 'hrsh7th/nvim-compe', config = function() require('setup/compe') end }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = '0.5-compat', config = function() require('setup/treesitter') end }
   use 'ray-x/lsp_signature.nvim'
-  -- use 'glepnir/lspsaga.nvim'
-  use { 'tami5/lspsaga.nvim', branch = 'nvim6.0' }
+  use { 'tami5/lspsaga.nvim', branch = 'nvim6.0', config = function() require('setup/lspsaga') end }
   use 'p00f/nvim-ts-rainbow'
-  use 'folke/lsp-colors.nvim'
+  use { 'folke/lsp-colors.nvim', config = function() require('setup/lsp-colors') end }
   use 'nvim-lua/lsp-status.nvim'
   use 'stevearc/aerial.nvim'
   -- Language
@@ -25,56 +61,55 @@ return require('packer').startup(function ()
   use 'rust-lang/rust.vim'
 
   -- Theme
-  use 'projekt0n/github-nvim-theme'
-  use 'folke/tokyonight.nvim'
+  use { 'folke/tokyonight.nvim', config = function() require('setup/tokyonight') end }
 
   -- UI
   use 'kyazdani42/nvim-web-devicons'
-  use 'akinsho/nvim-bufferline.lua'
+  use { 'akinsho/nvim-bufferline.lua', config = function() require('setup/bufferline') end }
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-lua/popup.nvim' },
       { 'nvim-lua/plenary.nvim' }, 
       { 'nvim-telescope/telescope-fzy-native.nvim' },
-      { 'nvim-telescope/telescope-file-browser.nvim' }
-    }
+      { 'nvim-telescope/telescope-file-browser.nvim' },
+      { "AckslD/nvim-neoclip.lua", config = function() require('setup/neoclip') end }
+    },
+    config = function() require('setup/telescope') end
   }
   use {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function() require('setup/lualine') end
   }
-  use 'folke/trouble.nvim'
+  use { 'folke/trouble.nvim', config = function() require('setup/trouble') end }
   use 'folke/which-key.nvim'
-  use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function() require('setup/indent-blankline') end
+  }
   use 'RRethy/vim-illuminate'
   use 'danilamihailov/beacon.nvim'
   use 'famiu/bufdelete.nvim'
-  use 'glepnir/dashboard-nvim'
-  use {
-    "AckslD/nvim-neoclip.lua",
-    requires = {
-      {"nvim-telescope/telescope.nvim"}
-    }
-  }
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'glepnir/dashboard-nvim', config = function() require('setup/dashboard') end }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require('setup/diffview') end }
   -- Debugger
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
+  use { 'mfussenegger/nvim-dap', config = function() require('setup/dap') end }
+  use { 'rcarriga/nvim-dap-ui', config = function() require('setup/dapui') end }
 
   -- Helper
   use 'b3nj5m1n/kommentary'
-  use 'windwp/nvim-autopairs'
-  use 'karb94/neoscroll.nvim'
-  use 'Pocco81/AutoSave.nvim'
+  use { 'windwp/nvim-autopairs', config = function() require('setup/autopairs') end }
+  use { 'karb94/neoscroll.nvim', config = function() require('setup/neoscroll') end }
+  use { 'Pocco81/AutoSave.nvim', config = function() require('setup/autosave') end }
   use 'akinsho/nvim-toggleterm.lua'
   use 'tpope/vim-surround'
-  use 'romgrk/nvim-treesitter-context'
+  use { 'romgrk/nvim-treesitter-context', config = function() require('setup/treesitter-context') end }
   use 'APZelos/blamer.nvim'
 
   -- Database
   use 'tpope/vim-dadbod'
-  use 'kristijanhusak/vim-dadbod-ui'
+  use { 'kristijanhusak/vim-dadbod-ui', config = function() require('setup/dadbod-ui') end }
   use 'kristijanhusak/vim-dadbod-completion'
 
   if packer_bootstrap then

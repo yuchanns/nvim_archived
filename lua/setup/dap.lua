@@ -1,34 +1,10 @@
-vim.api.nvim_set_keymap('n', 'dc', ':lua require(\'dap\').continue()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'di', ':lua require(\'dap\').step_over()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'dn', ':lua require(\'dap\').step_into()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'do', ':lua require(\'dap\').step_out()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'db', ':lua require(\'dap\').toggle_breakpoint()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'dr', ':lua require(\'dap\').repl.open()<CR>', { noremap = true, silent = true })
-
-vim.fn.sign_define('DapBreakpoint', {text='', texthl='Error', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', { text = 'ﰲ', texthl = 'Success', linehl = '', numhl = '' })
-
-
--- language
-local dap, dapui = require('dap'), require('dapui')
--- ui
-dapui.setup {
-  sidebar = {
-    position = 'right',
-  },
-}
-
-dap.listeners.after.event_initialized['dapui_config'] = function()
-    dapui.open()
+-- Use a protected call so we don't error out on first use
+local status_ok, _ = pcall(require, "dapui")
+if not status_ok then
+  return
 end
 
-dap.listeners.before.event_terminated['dapui_config'] = function()
-    dapui.close()
-end
-
-dap.listeners.before.event_exited['dapui_config'] = function()
-    dapui.close()
-end
+local dap = require('dap')
 -- golang
 dap.adapters.go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
