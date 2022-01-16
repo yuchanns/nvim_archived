@@ -2,7 +2,7 @@ local fn = vim.fn
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   print "Installing packer close and reopen Neovim..."
   vim.cmd [[packadd packer.nvim]]
 end
@@ -30,10 +30,10 @@ packer.init {
   },
 }
 
-return require('packer').startup(function ()
+return require('packer').startup(function (use)
   use 'wbthomason/packer.nvim'
   -- LSP and friends
-  use { 
+  use {
     'neovim/nvim-lspconfig',
     requires = {
       { 'RRethy/vim-illuminate'},
@@ -112,7 +112,7 @@ return require('packer').startup(function ()
   use { 'kristijanhusak/vim-dadbod-ui', config = function() require('setup/dadbod-ui') end }
   use 'kristijanhusak/vim-dadbod-completion'
 
-  if packer_bootstrap then
+  if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
 end)
