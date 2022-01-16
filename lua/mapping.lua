@@ -55,5 +55,3 @@ api.nvim_set_keymap('n', 'do', ':lua require(\'dap\').step_out()<CR>', { noremap
 api.nvim_set_keymap('n', 'db', ':lua require(\'dap\').toggle_breakpoint()<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'dr', ':lua require(\'dap\').repl.open()<CR>', { noremap = true, silent = true })
 
-fn.sign_define('DapBreakpoint', {text='', texthl='Error', linehl='', numhl=''})
-fn.sign_define('DapStopped', { text = 'ﰲ', texthl = 'Success', linehl = '', numhl = '' })

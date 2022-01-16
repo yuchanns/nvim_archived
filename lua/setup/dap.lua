@@ -5,6 +5,9 @@ if not status_ok then
 end
 
 local dap = require('dap')
+
+vim.fn.sign_define('DapBreakpoint', {text='', texthl='Error', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', { text = 'ﰲ', texthl = 'Success', linehl = '', numhl = '' })
 -- golang
 dap.adapters.go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
