@@ -124,7 +124,7 @@ nvim_lsp["sumneko_lua"].setup {
 }
 -- php
 vim.cmd('autocmd FileType php set iskeyword+=$')
-local phpactor_root_path = '/project-data/github/phpactor'
+local phpactor_root_path = vim.fn.stdpath('data')..'/lspconfig/phpactor'
 local phpactor_binary = phpactor_root_path.."/bin/phpactor"
 nvim_lsp["phpactor"].setup {
     on_attach = on_attach,
