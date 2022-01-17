@@ -83,7 +83,7 @@ return require('packer').startup(function (use)
     config = function() require('setup/lualine') end
   }
   use { 'folke/trouble.nvim', config = function() require('setup/trouble') end }
-  use 'folke/which-key.nvim'
+  use { 'folke/which-key.nvim', config = function() require('setup/whichkey') end }
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function() require('setup/indent-blankline') end
