@@ -46,9 +46,3 @@ require('bufferline').setup {
     }
 }
 
-vim.api.nvim_set_keymap('n', 'b]', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'b[', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'be', ':BufferLineSortByExtension<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'bd', ':BufferLineSortByDirectory<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'bc', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'bb', ':BufferLinePick<CR>', { noremap = true, silent = true })
