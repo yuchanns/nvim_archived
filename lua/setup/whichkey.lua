@@ -11,7 +11,7 @@ wk.register({
   -- Code Navigation
   g = {
     name = "Code Navigation",
-    a = { ":lua require(\'lspsaga.codeaction\').range_code_action()<CR>", "Code Action", noremap = true, silent = true },
+    a = { ":lua require(\'lspsaga.codeaction\').code_action()<CR>", "Code Action", noremap = true, silent = true },
     i = { ":lua require(\'telescope.builtin\').lsp_implementations()<CR>", "Goto Implementation", noremap = true, silent = true },
     r = { ":lua vim.lsp.buf.references()<CR>", "Goto References", noremap = true, silent = true },
     s = { ":lua vim.lsp.buf.document_symbol()<CR>", "Goto Symbol", noremap = true, silent = true },
