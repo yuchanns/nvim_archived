@@ -9,4 +9,3 @@ require'treesitter-context'.setup{
     throttle = true, -- Throttles plugin updates (may improve performance)
 }
 
-vim.cmd("let &fcs='eob: '")

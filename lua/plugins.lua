@@ -70,7 +70,7 @@ return require('packer').startup(function (use)
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-lua/popup.nvim' },
-      { 'nvim-lua/plenary.nvim' }, 
+      { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzy-native.nvim' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
       { "AckslD/nvim-neoclip.lua", config = function() require('setup/neoclip') end }
@@ -93,6 +93,7 @@ return require('packer').startup(function (use)
   use 'famiu/bufdelete.nvim'
   use { 'glepnir/dashboard-nvim', config = function() require('setup/dashboard') end }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require('setup/diffview') end }
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = function() require('setup/gitsigns') end }
   -- Debugger
   use { 'mfussenegger/nvim-dap', config = function() require('setup/dap') end }
   use { 'rcarriga/nvim-dap-ui', config = function() require('setup/dapui') end }
@@ -105,7 +106,6 @@ return require('packer').startup(function (use)
   use 'akinsho/nvim-toggleterm.lua'
   use 'tpope/vim-surround'
   use { 'romgrk/nvim-treesitter-context', config = function() require('setup/treesitter-context') end }
-  use 'APZelos/blamer.nvim'
 
   -- Database
   use 'tpope/vim-dadbod'
