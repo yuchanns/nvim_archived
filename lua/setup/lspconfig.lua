@@ -136,3 +136,29 @@ end
 if executable("typescript-language-server") > 0 then
   nvim_lsp["tsserver"].setup {}
 end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- css
+if executable("vscode-css-language-server") > 0 then
+  nvim_lsp["cssls"].setup {
+    capabilities = capabilities,
+  }
+end
+-- html
+if executable("vscode-html-language-server") > 0 then
+    nvim_lsp["html"].setup {
+      capabilities = capabilities,
+    }
+end
+-- json
+if executable("vscode-json-language-server") > 0 then
+    nvim_lsp["jsonls"].setup {
+      capabilities = capabilities,
+    }
+end
+-- eslint
+if executable("vscode-eslint-language-server") > 0 then
+    vim.cmd("autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>")
+    nvim_lsp["eslint"].setup {}
+end
+
