@@ -10,6 +10,10 @@ telescope.setup {
         fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
+        },
+        file_browser = {
+            hidden = true,
+            respect_gitignore = true
         }
     }
 }
