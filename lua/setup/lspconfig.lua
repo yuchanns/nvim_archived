@@ -131,3 +131,8 @@ if executable(phpactor_binary) > 0 then
     cmd = {phpactor_binary, "language-server", "-vvv"}
   }
 end
+
+-- typescript
+if executable("typescript-language-server") > 0 then
+  nvim_lsp["tsserver"].setup {}
+end
