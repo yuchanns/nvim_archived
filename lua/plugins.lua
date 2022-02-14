@@ -108,6 +108,7 @@ return require('packer').startup(function (use)
   use { 'romgrk/nvim-treesitter-context', config = function() require('setup/treesitter-context') end }
   use { 'FotiadisM/tabset.nvim', config = function() require('setup/tabset') end }
   use { 'wakatime/vim-wakatime' }
+  use { 'github/copilot.vim' }
 
   -- Database
   use 'tpope/vim-dadbod'
