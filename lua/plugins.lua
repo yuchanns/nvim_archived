@@ -109,6 +109,7 @@ return require('packer').startup(function (use)
   use { 'FotiadisM/tabset.nvim', config = function() require('setup/tabset') end }
   use { 'wakatime/vim-wakatime' }
   use { 'github/copilot.vim' }
+  use { 'mg979/vim-visual-multi' }
 
   -- Database
   use 'tpope/vim-dadbod'
