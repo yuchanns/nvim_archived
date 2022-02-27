@@ -110,6 +110,7 @@ return require('packer').startup(function (use)
   use { 'wakatime/vim-wakatime' }
   use { 'github/copilot.vim' }
   use { 'mg979/vim-visual-multi' }
+  use { 'jghauser/mkdir.nvim', config = function() require('mkdir')  end }
 
   -- Database
   use 'tpope/vim-dadbod'
