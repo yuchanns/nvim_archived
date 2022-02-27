@@ -94,7 +94,7 @@ wk.register({
 }, { prefix = "<leader>", mode = "n" })
 -- Terminal
 wk.register({
-  ["<leader>t"] = { "<Cmd>exe v:count1 . \"ToggleTerm size=10 direction=float\"<CR>", "Toggle Float Terminal", noremap = true, silent = true, mode = "n" },
+  ["<leader>t"] = { "<Cmd>exe v:count1 . \"ToggleTerm size=10 direction=horizontal\"<CR>", "Toggle Float Terminal", noremap = true, silent = true, mode = "n" },
   -- This will not work now and I cannot figure out why.
   -- ["<Esc>"] = { "<C-\\><C-n>", "Exit Terminal Input Mode", noremap = true, silent = true, mode = "t" }
 }, {})
