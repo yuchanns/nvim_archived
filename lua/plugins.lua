@@ -47,7 +47,7 @@ return require('packer').startup(function (use)
     config = function() require('setup/lspconfig') end
   }
   use { 'hrsh7th/nvim-compe', config = function() require('setup/compe') end }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = '0.5-compat', config = function() require('setup/treesitter') end }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require('setup/treesitter') end }
   use 'ray-x/lsp_signature.nvim'
   use { 'tami5/lspsaga.nvim', branch = 'nvim6.0', config = function() require('setup/lspsaga') end }
   use 'p00f/nvim-ts-rainbow'
