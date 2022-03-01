@@ -5,8 +5,27 @@ if not status_ok then
 end
 
 local g = vim.g
-g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
+g.nvim_tree_icons = {
+    symlink = '',
+    git = {
+        untracked = '?',
+    },
+    folder = {
+        arrow_open = '',
+        arrow_closed = '',
+        default = '',
+        open = '',
+    },
+}
+g.nvim_tree_show_icons = {
+    git = 1,
+    folders = 1,
+    files = 1,
+    folder_arrows = 1,
+}
+
+local tree_cb = require('nvim-tree.config').nvim_tree_callback
 
 require("nvim-tree").setup {
     diagnostics = {
@@ -28,6 +47,23 @@ require("nvim-tree").setup {
     hijack_cursor = true,
     view = {
       hide_root_folder = true,
-    }
+      mappings = {
+        list = {
+          { key = '<C-v>', cb = tree_cb('vsplit') },
+          { key = '<C-s>', cb = tree_cb('split') },
+          { key = 'v', cb = tree_cb('vsplit') },
+          { key = 's', cb = tree_cb('split') },
+          { key = '<C-t>', cb = ':ToggleTerm<cr>' },
+        },
+      },
+    },
+    update_to_buf_dir = {
+      enable = true,
+      auto_update = true,
+    },
+    update_focused_file = {
+        enable = true,
+    },
+    auto_close = true,
 }
 
