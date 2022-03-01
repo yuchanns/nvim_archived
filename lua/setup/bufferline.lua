@@ -44,6 +44,17 @@ require('bufferline').setup {
             end,
         },
         show_close_icon = false,
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = function()
+                    local paths = vim.split(vim.fn.getcwd(), "/")
+                    return paths[#paths]
+                end,
+                highlight = "Directory",
+                text_align = "left"
+            }
+        },
     }
 }
 

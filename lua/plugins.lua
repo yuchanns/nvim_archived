@@ -65,6 +65,7 @@ return require('packer').startup(function (use)
 
   -- UI
   use 'kyazdani42/nvim-web-devicons'
+  use { 'kyazdani42/nvim-tree.lua', config = function() require('setup/nvim-tree') end }
   use { 'akinsho/nvim-bufferline.lua', config = function() require('setup/bufferline') end }
   use {
     'nvim-telescope/telescope.nvim',
