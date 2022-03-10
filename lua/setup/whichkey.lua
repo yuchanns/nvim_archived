@@ -93,8 +93,30 @@ wk.register({
   a = { "<cmd>AerialToggle! left<CR>", "Toggle Code Structure" },
 }, { prefix = "<leader>", mode = "n" })
 -- Terminal
+local function t(key)
+    return vim.api.nvim_replace_termcodes(key, true, true, true)
+end
 wk.register({
   ["<leader>t"] = { "<Cmd>exe v:count1 . \"ToggleTerm size=10 direction=horizontal\"<CR>", "Toggle Float Terminal", noremap = true, silent = true, mode = "n" },
-  -- This will not work now and I cannot figure out why.
-  -- ["<Esc>"] = { "<C-\\><C-n>", "Exit Terminal Input Mode", noremap = true, silent = true, mode = "t" }
+  ["<Esc>"] = { t("<C-\\><C-n>"), "Exit Terminal Input Mode", noremap = true, silent = true, mode = "t" }
 }, {})
+
+-- set lemonade as clipboard if available
+if vim.fn.executable('lemonade') > 0 then
+    vim.g.clipboard = {
+        name = 'lemonadeClipboard',
+        copy = {
+            ['+'] = { 'lemonade', 'copy' },
+            ['*'] = { 'lemonade', 'copy' }
+        },
+        paste = {
+            ['+'] = { 'lemonade', 'paste' },
+            ['*'] = { 'lemonade', 'paste' }
+        }
+    }
+
+    wk.register({
+        y = { '"*y', "Copy To Clipboard", noremap = true, silent = true },
+        p = { '"*p', "Paste To Clipboard", noremap = true, silent = true }
+    }, { prefix = "<leader>", mode = "v" })
+end
