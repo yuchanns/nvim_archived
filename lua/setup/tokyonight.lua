@@ -6,5 +6,7 @@ end
 local g = vim.g
 
 g.tokyonight_transparent = false
+g.tokyonight_italic_functions = true
+g.tokyonight_sidebars = { 'terminal', 'packer', 'qf' }
 
 vim.cmd[[colorscheme tokyonight]]
