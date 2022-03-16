@@ -104,7 +104,7 @@ return require('packer').startup(function (use)
   use { 'windwp/nvim-autopairs', config = function() require('setup/autopairs') end }
   use { 'karb94/neoscroll.nvim', config = function() require('setup/neoscroll') end }
   use { 'Pocco81/AutoSave.nvim', config = function() require('setup/autosave') end }
-  use 'akinsho/nvim-toggleterm.lua'
+  use { 'akinsho/nvim-toggleterm.lua', config = function() require('setup/toggleterm') end }
   use 'tpope/vim-surround'
   use { 'romgrk/nvim-treesitter-context', config = function() require('setup/treesitter-context') end }
   use { 'FotiadisM/tabset.nvim', config = function() require('setup/tabset') end }

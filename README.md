@@ -11,6 +11,7 @@
 * [lolcat](https://github.com/jaseg/lolcat)
 * [lua-language-server](https://github.com/sumneko/lua-language-server)
 * [phpactor](https://github.com/phpactor/phpactor)
+* [lazygit](https://github.com/jesseduffield/lazygit)
 * ...(to be completed)
 
 ## Usage
