@@ -57,7 +57,15 @@ return require('packer').startup(function (use)
   -- Language
   use 'crispgm/nvim-go'
   use 'simrat39/rust-tools.nvim'
-  use 'rhysd/vim-go-impl'
+  use {
+    'edolphin-ydf/goimpl.nvim',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-lua/popup.nvim'},
+      {'nvim-telescope/telescope.nvim'},
+      {'nvim-treesitter/nvim-treesitter'},
+    },
+  }
   use 'rust-lang/rust.vim'
 
   -- Theme
@@ -95,6 +103,7 @@ return require('packer').startup(function (use)
   use { 'glepnir/dashboard-nvim', config = function() require('setup/dashboard') end }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim', config = function() require('setup/diffview') end }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = function() require('setup/gitsigns') end }
+  use { 'rcarriga/nvim-notify', config = function() require('setup/notify') end }
   -- Debugger
   use { 'mfussenegger/nvim-dap', config = function() require('setup/dap') end }
   use { 'rcarriga/nvim-dap-ui', config = function() require('setup/dapui') end }

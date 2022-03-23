@@ -22,7 +22,8 @@ wk.register({
     R = { ":TroubleToggle lsp_references<CR>", "Goto Trouble References", noremap = true },
     h = { ":lua require\'lspsaga.provider\'.lsp_finder()<CR>", "Goto References", noremap = true, silent = true },
     cc = { "<Plug>kommentary_line_default", "Comment Line" },
-    c = { "<Plug>kommentary_motion_default", "Comment" }
+    c = { "<Plug>kommentary_motion_default", "Comment" },
+    m = { ":lua require'telescope'.extensions.goimpl.goimpl{}<CR>", "Implement Interface", noremap = true, silent = true },
   },
   K = { ":lua require(\'lspsaga.hover\').render_hover_doc()<CR>", "Hover Doc", noremap = true, silent = true },
   -- Window Resize
