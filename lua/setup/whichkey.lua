@@ -4,6 +4,10 @@ if not status_ok then
   return
 end
 
+local function t(key)
+    return vim.api.nvim_replace_termcodes(key, true, true, true)
+end
+
 local wk = require("which-key")
 
 -- normal mode
@@ -45,7 +49,10 @@ wk.register({
   },
   -- Code Structure
   ["{"] = { "<cmd>AerialPrev<CR>", "Prev Code Structure" },
-  ["}"] = { "<cmd>AerialNext<CR>", "Next Code Structure" }
+  ["}"] = { "<cmd>AerialNext<CR>", "Next Code Structure" },
+
+  -- Reload Nvim Config
+  ["cr"] = { ":lua reload_nvim_conf()<CR>", "Reload Nvim Configuration" }
 }, { prefix = "", mode = "n" })
 -- visual mode
 wk.register({
@@ -93,9 +100,6 @@ wk.register({
   a = { "<cmd>AerialToggle! left<CR>", "Toggle Code Structure" },
 }, { prefix = "<leader>", mode = "n" })
 -- Terminal
-local function t(key)
-    return vim.api.nvim_replace_termcodes(key, true, true, true)
-end
 wk.register({
   ["<leader>t"] = { "<Cmd>exe v:count1 . \"ToggleTerm size=10 direction=horizontal\"<CR>", "Toggle Float Terminal", noremap = true, silent = true, mode = "n" },
   ["<Esc>"] = { t("<C-\\><C-n>"), "Exit Terminal Input Mode", noremap = true, silent = true, mode = "t" }
