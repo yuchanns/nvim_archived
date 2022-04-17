@@ -49,7 +49,7 @@ return require('packer').startup(function (use)
   use { 'hrsh7th/nvim-compe', config = function() require('setup/compe') end }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require('setup/treesitter') end }
   use 'ray-x/lsp_signature.nvim'
-  use { 'tami5/lspsaga.nvim', branch = 'nvim6.0', config = function() require('setup/lspsaga') end }
+  use { 'tami5/lspsaga.nvim', config = function() require('setup/lspsaga') end }
   use 'p00f/nvim-ts-rainbow'
   use { 'folke/lsp-colors.nvim', config = function() require('setup/lsp-colors') end }
   use 'nvim-lua/lsp-status.nvim'
