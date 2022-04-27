@@ -57,10 +57,6 @@ require("nvim-tree").setup {
         },
       },
     },
-    update_to_buf_dir = {
-      enable = true,
-      auto_update = true,
-    },
     update_focused_file = {
         enable = true,
     },

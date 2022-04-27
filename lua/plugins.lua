@@ -115,7 +115,7 @@ return require('packer').startup(function (use)
   use { 'Pocco81/AutoSave.nvim', config = function() require('setup/autosave') end }
   use { 'akinsho/nvim-toggleterm.lua', config = function() require('setup/toggleterm') end }
   use 'tpope/vim-surround'
-  use { 'romgrk/nvim-treesitter-context', config = function() require('setup/treesitter-context') end }
+  use { 'lewis6991/nvim-treesitter-context', config = function() require('setup/treesitter-context') end }
   use { 'FotiadisM/tabset.nvim', config = function() require('setup/tabset') end }
   use { 'wakatime/vim-wakatime' }
   use { 'github/copilot.vim' }
