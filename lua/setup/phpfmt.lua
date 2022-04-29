@@ -13,7 +13,6 @@ if vim.fn.executable(cbf_binary) > 0 then
         vim.fn.jobstart(cmd, {
             on_exit = function(_, code, _)
                 if code == 0 or code == 1 then
-                    vim.notify("PHPFormat Success", vim.log.levels.INFO)
                     vim.api.nvim_exec('edit', true)
                     vim.fn.winrestview(view)
                 end
