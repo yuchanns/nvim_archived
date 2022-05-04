@@ -13,22 +13,22 @@ opt.cindent = true
 --[[ vim.cmd('set tabstop=4')
 vim.cmd('set shiftwidth=4')
 vim.cmd('set softtabstop=4') ]]
-vim.cmd('set signcolumn=number')
+vim.cmd("set signcolumn=number")
 vim.cmd("let &fcs='eob: '") -- hide tilde sign on blank lines
 opt.expandtab = true
 
 opt.number = true
 opt.termguicolors = true
-opt.signcolumn = 'number'
+opt.signcolumn = "number"
 
 opt.updatetime = 400
 opt.hidden = true
 opt.wrap = true
-opt.fileencoding = 'utf-8'
+opt.fileencoding = "utf-8"
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = false
-opt.belloff = 'all'
-opt.shell = 'zsh'
+opt.belloff = "all"
+opt.shell = "zsh"
 
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"

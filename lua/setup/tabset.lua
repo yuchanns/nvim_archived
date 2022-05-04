@@ -4,17 +4,24 @@ if not status_ok then
   return
 end
 
-require('tabset').setup {
+require("tabset").setup({
   defaults = {
     tabwidth = 4,
-    expandtab = true
+    expandtab = true,
   },
   languages = {
     {
-      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "yaml" },
+      filetypes = {
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "json",
+        "yaml",
+      },
       config = {
-        tabwidth = 2
-      }
-    }
-  }
-}
+        tabwidth = 2,
+      },
+    },
+  },
+})

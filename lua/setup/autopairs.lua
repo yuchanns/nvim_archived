@@ -4,4 +4,4 @@ if not status_ok then
   return
 end
 
-require('nvim-autopairs').setup()
+require("nvim-autopairs").setup()

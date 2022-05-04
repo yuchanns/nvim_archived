@@ -1,5 +1,4 @@
-require('plugins')
-require('mapping')
-require('options')
-require('setup/phpfmt')
-
+require("plugins")
+require("mapping")
+require("options")
+require("setup/phpfmt")

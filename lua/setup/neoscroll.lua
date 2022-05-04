@@ -4,4 +4,4 @@ if not status_ok then
   return
 end
 
-require('neoscroll').setup()
+require("neoscroll").setup()

@@ -4,5 +4,4 @@ if not status_ok then
   return
 end
 
-require('lspsaga').init_lsp_saga()
-
+require("lspsaga").init_lsp_saga()

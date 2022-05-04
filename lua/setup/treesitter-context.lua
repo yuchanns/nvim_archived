@@ -4,8 +4,7 @@ if not status_ok then
   return
 end
 
-require'treesitter-context'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    throttle = true, -- Throttles plugin updates (may improve performance)
-}
-
+require("treesitter-context").setup({
+  enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+  throttle = true, -- Throttles plugin updates (may improve performance)
+})

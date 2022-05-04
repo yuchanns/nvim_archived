@@ -4,12 +4,12 @@ if not status_ok then
   return
 end
 
-require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = "tokyonight",
-        section_separators = { left = "", right = ""},
-        component_separators = { left = '', right = ''},
-    },
-    extensions = { 'nvim-tree' }
-}
+require("lualine").setup({
+  options = {
+    icons_enabled = true,
+    theme = "tokyonight",
+    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+  },
+  extensions = { "nvim-tree" },
+})

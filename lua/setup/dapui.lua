@@ -4,22 +4,22 @@ if not status_ok then
   return
 end
 
-local dap, dapui = require('dap'), require('dapui')
+local dap, dapui = require("dap"), require("dapui")
 
-dapui.setup {
+dapui.setup({
   sidebar = {
-    position = 'right',
+    position = "right",
   },
-}
+})
 
-dap.listeners.after.event_initialized['dapui_config'] = function()
-    dapui.open()
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
 end
 
-dap.listeners.before.event_terminated['dapui_config'] = function()
-    dapui.close()
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
 end
 
-dap.listeners.before.event_exited['dapui_config'] = function()
-    dapui.close()
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
 end
