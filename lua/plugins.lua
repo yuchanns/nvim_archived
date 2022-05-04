@@ -98,6 +98,12 @@ return require("packer").startup(function(use)
   })
   use("rust-lang/rust.vim")
   use("ckipp01/stylua-nvim")
+  use({
+    "yuchanns/phpfmt.nvim",
+    config = function()
+      require("setup/phpfmt")
+    end,
+  })
 
   -- Theme
   use({
