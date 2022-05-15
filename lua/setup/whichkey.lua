@@ -152,8 +152,12 @@ wk.register({
       noremap = true,
       silent = true,
     },
-    a = { ":DashboardFindWord<CR>", "Global Search", noremap = true, silent = true },
-    b = { ":DashboardJumpMark<CR>", "Jump Mark", noremap = true, silent = true },
+    a = {
+      ":lua require('telescope.builtin').live_grep()<CR>",
+      "Global Search",
+      noremap = true,
+      silent = true,
+    },
     p = { ":Telescope neoclip<CR>", "Open Clipboard", noremap = true, silent = true },
     s = {
       ":lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>",
@@ -161,16 +165,15 @@ wk.register({
       noremap = true,
       silent = true,
     },
-    h = { ":DashboardFindHistory<CR>", "Browse History", noremap = true, silent = true },
+    h = {
+      ":lua require('telescope.builtin').oldfiles()<CR>",
+      "Browse History",
+      noremap = true,
+      silent = true,
+    },
   },
   c = {
-    n = { ":DashboardNewFile<CR>", "Create New File", noremap = true, silent = true },
-  },
-  -- Session
-  -- This not work well for now.
-  s = {
-    s = { ":<C-u>SessionSave<CR>", "Session Save", noremap = true },
-    l = { ":<C-u>SessionLoad<CR>", "Session Load", noremap = true },
+    n = { ":enew<CR>", "Create New File", noremap = true, silent = true },
   },
   -- Window Resize
   ["="] = {

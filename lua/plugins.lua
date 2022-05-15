@@ -177,7 +177,8 @@ return require("packer").startup(function(use)
   use("danilamihailov/beacon.nvim")
   use("famiu/bufdelete.nvim")
   use({
-    "glepnir/dashboard-nvim",
+    "goolord/alpha-nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
       require("setup/dashboard")
     end,
