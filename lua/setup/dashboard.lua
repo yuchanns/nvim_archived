@@ -5,7 +5,8 @@ if not status_ok then
 end
 
 math.randomseed(os.time())
-local colors = { "white", "violet", "lightyellow" }
+-- local colors = { "white", "violet", "lightyellow", "#7ba2f7" }
+local colors = { "#7ba2f7", "#9b348e", "#db627c", "#fda17d", "#86bbd8", "#33648a" }
 local function random_colors(color_lst)
   return color_lst[math.random(1, #color_lst)]
 end
