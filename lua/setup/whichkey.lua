@@ -147,7 +147,7 @@ wk.register({
   f = {
     name = "Dashboard",
     f = {
-      ":lua require('telescope').extensions.file_browser.file_browser()<CR>",
+      ":lua require('vfiler').start()<CR>",
       "Browse File",
       noremap = true,
       silent = true,

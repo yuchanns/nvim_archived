@@ -114,13 +114,16 @@ return require("packer").startup(function(use)
   })
 
   -- UI
-  use("kyazdani42/nvim-web-devicons")
   use({
-    "kyazdani42/nvim-tree.lua",
+    "obaland/vfiler.vim",
+    requires = {
+      { "obaland/vfiler-column-devicons" },
+    },
     config = function()
-      require("setup/nvim-tree")
+      require("setup/vfiler")
     end,
   })
+  use("kyazdani42/nvim-web-devicons")
   use({
     "akinsho/nvim-bufferline.lua",
     config = function()
