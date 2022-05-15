@@ -4,6 +4,13 @@ if not status_ok then
   return
 end
 
+math.randomseed(os.time())
+local colors = { "white", "violet", "lightyellow" }
+local function random_colors(color_lst)
+  return color_lst[math.random(1, #color_lst)]
+end
+vim.cmd(string.format("highlight dashboard guifg=%s guibg=bg", random_colors(colors)))
+
 local dashboard = require("alpha.themes.dashboard")
 local header = {
   [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
