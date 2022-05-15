@@ -10,7 +10,8 @@ vfiler_config.setup({
     auto_resize = true,
     keep = true,
     layout = "floating",
-    name = "explorer",
     columns = "indent,devicons,name,mode,size,time",
+    listed = false,
+    blend = 30,
   },
 })
