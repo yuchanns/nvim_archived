@@ -104,6 +104,12 @@ return require("packer").startup(function(use)
       require("setup/phpfmt")
     end,
   })
+  use({
+    "yuchanns/shfmt.nvim",
+    config = function()
+      require("setup/shfmt")
+    end,
+  })
 
   -- Theme
   use({
