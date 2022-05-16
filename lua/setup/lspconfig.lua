@@ -98,13 +98,6 @@ if executable(sumneko_binary) > 0 then
 
   nvim_lsp["sumneko_lua"].setup({
     cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-    commands = {
-      Format = {
-        function()
-          require("stylua-nvim").format_file()
-        end,
-      },
-    },
     settings = {
       Lua = {
         runtime = {
@@ -127,6 +120,21 @@ if executable(sumneko_binary) > 0 then
         },
       },
     },
+  })
+end
+
+if executable("stylua") > 0 then
+  local augroup = "LUAFMT"
+  local stylua = require("stylua-nvim")
+  vim.api.nvim_create_augroup(augroup, {})
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup,
+    callback = function()
+      if vim.bo.filetype ~= "lua" then
+        return
+      end
+      stylua.format_file()
+    end,
   })
 end
 
