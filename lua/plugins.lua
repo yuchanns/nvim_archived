@@ -245,6 +245,7 @@ return require("packer").startup(function(use)
   })
   use({
     "akinsho/nvim-toggleterm.lua",
+    tag = "v1.*",
     config = function()
       require("setup/toggleterm")
     end,
