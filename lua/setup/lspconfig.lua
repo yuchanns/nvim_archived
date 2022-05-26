@@ -182,4 +182,15 @@ end
 -- haskell
 if executable("haskell-language-server-wrapper") > 0 then
   nvim_lsp["hls"].setup({})
+  local augroup = "HSFMT"
+  vim.api.nvim_create_augroup(augroup, {})
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup,
+    callback = function()
+      if vim.bo.filetype ~= "haskell" and vim.bo.filetype ~= "lhaskell" then
+        return
+      end
+      vim.lsp.buf.formatting()
+    end,
+  })
 end
