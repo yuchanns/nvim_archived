@@ -178,3 +178,8 @@ if executable("vscode-eslint-language-server") > 0 then
   vim.cmd("autocmd BufWritePre <buffer> <cmd>EslintFixAll<CR>")
   nvim_lsp["eslint"].setup({})
 end
+
+-- haskell
+if executable("haskell-language-server-wrapper") > 0 then
+  nvim_lsp["hls"].setup({})
+end
