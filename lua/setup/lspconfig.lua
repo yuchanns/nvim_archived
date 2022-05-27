@@ -181,7 +181,9 @@ end
 
 -- haskell
 if executable("haskell-language-server-wrapper") > 0 then
-  nvim_lsp["hls"].setup({})
+  nvim_lsp["hls"].setup({
+    single_file_support = true,
+  })
   local augroup = "HSFMT"
   vim.api.nvim_create_augroup(augroup, {})
   vim.api.nvim_create_autocmd("BufWritePre", {

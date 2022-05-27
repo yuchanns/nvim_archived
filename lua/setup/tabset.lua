@@ -18,6 +18,8 @@ require("tabset").setup({
         "typescriptreact",
         "json",
         "yaml",
+        "haskell",
+        "lhaskell",
       },
       config = {
         tabwidth = 2,
