@@ -7,7 +7,7 @@ end
 require("autosave").setup({
   enabled = true,
   execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
-  events = { "InsertLeave", "TextChanged" },
+  events = { "InsertLeave" },
   conditions = {
     exists = true,
     filetype_is_not = {},
@@ -15,6 +15,6 @@ require("autosave").setup({
   },
   write_all_buffers = false,
   on_off_commands = true,
-  clean_command_line_interval = 0,
+  clean_command_line_interval = 500,
   debounce_delay = 135,
 })
