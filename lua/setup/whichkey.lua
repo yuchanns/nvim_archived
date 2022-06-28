@@ -32,7 +32,7 @@ wk.register({
     s = { ":lua vim.lsp.buf.document_symbol()<CR>", "Goto Symbol", noremap = true, silent = true },
     R = { ":TroubleToggle lsp_references<CR>", "Goto Trouble References", noremap = true },
     h = {
-      ":lua require'lspsaga.provider'.lsp_finder()<CR>",
+      ":lua require'lspsaga.finder'.lsp_finder()<CR>",
       "Goto References",
       noremap = true,
       silent = true,
@@ -45,7 +45,12 @@ wk.register({
       noremap = true,
       silent = true,
     },
-    n = { ":lua require('lspsaga.rename').rename()<CR>", "Rename", noremap = true, silent = true },
+    n = {
+      ":lua require('lspsaga.rename').lsp_rename()<CR>",
+      "Rename",
+      noremap = true,
+      silent = true,
+    },
     f = { ":lua vim.lsp.buf.formatting()<CR>", "Format", noremap = true, silent = true },
   },
   K = {
@@ -107,6 +112,10 @@ wk.register({
 
   -- Reload Nvim Config
   ["cr"] = { ":lua reload_nvim_conf()<CR>", "Reload Nvim Configuration" },
+
+  -- Diagnostics
+  ["[e"] = { ':lua require("lspsaga.diagnostic").goto_prev()<CR>', "Jump Prev Diagnostic" },
+  ["]e"] = { ':lua require("lspsaga.diagnostic").goto_next()<CR>', "Jump Next Diagnostic" },
 }, { prefix = "", mode = "n" })
 -- visual mode
 wk.register({
@@ -120,7 +129,7 @@ wk.register({
 wk.register({
   -- Diagnostics
   e = {
-    ":lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+    ':lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>',
     "Show Diagnostics",
     noremap = true,
     silent = true,

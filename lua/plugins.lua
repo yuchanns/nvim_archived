@@ -70,7 +70,7 @@ return require("packer").startup(function(use)
   })
   use("ray-x/lsp_signature.nvim")
   use({
-    "tami5/lspsaga.nvim",
+    "glepnir/lspsaga.nvim",
     config = function()
       require("setup/lspsaga")
     end,

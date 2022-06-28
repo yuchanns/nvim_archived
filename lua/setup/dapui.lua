@@ -7,8 +7,8 @@ end
 local dap, dapui = require("dap"), require("dapui")
 
 dapui.setup({
-  sidebar = {
-    position = "right",
+  layouts = {
+    { elements = { "scopes", "breakpoints", "stacks", "watches" }, size = 40, position = "right" },
   },
 })
 
